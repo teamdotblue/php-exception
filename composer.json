@@ -13,10 +13,14 @@
     ],
     "require": {
         "php": "^8.2 || ^8.3",
+        "api-platform/core": "^3.0",
         "arnedesmedt/json-immutable-objects": "~0.1",
         "arnedesmedt/php-util": "~0.1",
         "event-engine/php-json-schema": "~3.0",
-        "symfony/http-kernel": "~6.0 || ~7.0"
+        "sentry/sentry": "^4.9",
+        "symfony/error-handler": "^7.1",
+        "symfony/http-kernel": "~6.0 || ~7.0",
+        "symfony/serializer": "^7.1"
     },
     "require-dev" : {
         "doctrine/coding-standard": "~12.0",

@@ -3,3 +3,8 @@ parameters:
     paths:
         - src
         - tests
+    ignoreErrors:
+        -
+            message: '#Property ADS\\Exception\\Context\\.*::\$.* is never written, only read\.#'
+            paths:
+                - */Context/*

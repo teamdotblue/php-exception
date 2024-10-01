@@ -20,7 +20,8 @@
         "sentry/sentry": "^4.9",
         "symfony/error-handler": "^7.1",
         "symfony/http-kernel": "~6.0 || ~7.0",
-        "symfony/serializer": "^7.1"
+        "symfony/serializer": "^7.1",
+        "team-blue/common": "^0.5.64"
     },
     "require-dev" : {
         "doctrine/coding-standard": "~12.0",
@@ -49,6 +50,12 @@
             "phpro/grumphp": true
         },
         "sort-packages": true
+    },
+    "repositories": {
+        "gitlab.group.team.blue/paas/clients": {
+            "type": "composer",
+            "url": "https://gitlab.group.team.blue/api/v4/group/3988/-/packages/composer/packages.json"
+        }
     },
     "scripts-descriptions": {
         "tests": "Run all tests"

@@ -6,3 +6,9 @@ services:
     ADS\Exception\Normalizer\ErrorNormalizer:
         arguments:
             - '@request_stack'
+
+    ADS\Exception\HttpException\ContextExceptionsExtractor:
+        autowire: true
+
+    ADS\Exception\SchemaFactory\ContextSchemaFactory:
+        autowire: true

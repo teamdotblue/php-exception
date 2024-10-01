@@ -101,7 +101,7 @@ class ErrorNormalizer implements NormalizerInterface
             : [];
     }
 
-    /** @param class-string<Throwable> $exceptionClass */
+    /** @param class-string<Throwable|ContextException> $exceptionClass */
     public static function typeFromException(string $exceptionClass): string
     {
         $reflectionClass = new ReflectionClass($exceptionClass);

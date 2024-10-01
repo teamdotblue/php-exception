@@ -14,8 +14,10 @@
     "require": {
         "php": "^8.2 || ^8.3",
         "api-platform/core": "^3.0",
+        "arnedesmedt/event-engine-symfony-bundle": "^0.6.41",
         "arnedesmedt/json-immutable-objects": "~0.1",
         "arnedesmedt/php-util": "~0.1",
+        "arnedesmedt/specifications": "^0.2.5",
         "event-engine/php-json-schema": "~3.0",
         "sentry/sentry": "^4.9",
         "symfony/error-handler": "^7.1",

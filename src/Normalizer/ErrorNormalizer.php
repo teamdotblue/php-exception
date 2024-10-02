@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace ADS\Exception\Normalizer;
 
 use ADS\Exception\HttpException\ContextException;
+use ADS\Exception\HttpException\PassThroughContextException;
 use ADS\Util\StringUtil;
 use ApiPlatform\Problem\Serializer\ErrorNormalizerTrait;
 use ArrayObject;
@@ -63,6 +64,20 @@ class ErrorNormalizer implements NormalizerInterface
             /** @var class-string<Throwable> $class */
             $class = $object->getClass();
             $status = $object->getStatusCode();
+        }
+
+        if ($exception instanceof PassThroughContextException) {
+            return [
+                'type' => $exception->type(),
+                'title' => $exception->title(),
+                'detail' => $exception->getMessage(),
+                'status' => $exception->getStatusCode(),
+                'metadata' => [
+                    'request_id' => $this->requestStack->getCurrentRequest()?->headers->get('X-Request-ID'),
+                    'sentry_trace' => $this->sentryHub->pushScope()->getPropagationContext()->getTraceContext(),
+                ],
+                'context' => $exception->context(),
+            ];
         }
 
         $translatable = $exception instanceof ContextException;

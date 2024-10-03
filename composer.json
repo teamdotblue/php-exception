@@ -12,7 +12,7 @@
         }
     ],
     "require": {
-        "php": "^8.0 || ^8.1 || ^8.2 || ^8.3",
+        "php": "^8.2 || ^8.3",
         "arnedesmedt/json-immutable-objects": "~0.1",
         "arnedesmedt/php-util": "~0.1",
         "event-engine/php-json-schema": "~3.0",

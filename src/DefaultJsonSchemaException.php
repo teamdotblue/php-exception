@@ -6,7 +6,9 @@ namespace ADS\Exception;
 
 use ADS\JsonImmutableObjects\JsonSchemaAwareRecordLogic;
 use ADS\Util\StringUtil;
+use LogicException;
 use ReflectionClass;
+use ReflectionNamedType;
 use ReflectionProperty;
 
 use function array_combine;
@@ -17,7 +19,10 @@ use function sprintf;
 use function strrchr;
 use function substr;
 
-/** @property string $message */
+/**
+ * @property string $message
+ * @method int getStatusCode()
+ */
 trait DefaultJsonSchemaException
 {
     use JsonSchemaAwareRecordLogic;
@@ -37,12 +42,31 @@ trait DefaultJsonSchemaException
     ];
 
     protected string $type;
+
+    protected string $title = 'Exception';
     protected string $detail;
+
+    protected int $status;
 
     private function init(): void
     {
-        $this->detail = $this->detail();
+        $this->status = $this->getStatusCode();
         $this->message = $this->detail;
+    }
+
+    public static function fromTitleAndDetail(string $title, string $detail): self
+    {
+        return self::fromArray(
+            [
+                'title' => $title,
+                'detail' => $detail,
+            ],
+        );
+    }
+
+    public static function fromDetail(string $detail): self
+    {
+        return self::fromArray(['detail' => $detail]);
     }
 
     /**
@@ -52,16 +76,16 @@ trait DefaultJsonSchemaException
      */
     private static function __defaultProperties(): array
     {
-        $reflectionClass = new ReflectionClass(static::class);
+        $strrchr = strrchr(self::class, '\\');
 
-        $toDecamilize = $reflectionClass->hasProperty('title')
-            ? $reflectionClass->getProperty('title')->getDefaultValue()
-            : substr(strrchr(static::class, '\\'), 1);
+        if ($strrchr === false) {
+            throw new LogicException('Class name does not contain a backslash');
+        }
 
         return [
             'type' => sprintf(
                 '/problem/%s',
-                StringUtil::decamelize($toDecamilize, '-', ' '),
+                StringUtil::decamelize(substr($strrchr, 1), '-', ' '),
             ),
         ];
     }
@@ -69,7 +93,7 @@ trait DefaultJsonSchemaException
     /** @return array<string, array{0: string, 1: bool, 2: bool}> */
     private static function buildPropTypeMap(): array
     {
-        $refObj = new ReflectionClass(static::class);
+        $refObj = new ReflectionClass(self::class);
         $properties = $refObj->getProperties();
         $propertiesByName = array_combine(
             array_map(
@@ -82,6 +106,7 @@ trait DefaultJsonSchemaException
         $propertyTypeMap = [];
 
         foreach ($propertiesByName as $propertyName => $property) {
+            /** @var ReflectionNamedType $type */
             $type = self::typeFromProperty($property, $refObj);
 
             $propertyTypeMap[$propertyName] = [
@@ -94,5 +119,18 @@ trait DefaultJsonSchemaException
         return $propertyTypeMap;
     }
 
-    abstract protected function detail(): string;
+    public function type(): string
+    {
+        return $this->type;
+    }
+
+    public function title(): string
+    {
+        return $this->title;
+    }
+
+    public function detail(): string
+    {
+        return $this->detail;
+    }
 }

@@ -14,6 +14,7 @@ use ReflectionClass;
 use Sentry\SentrySdk;
 use Sentry\State\HubInterface;
 use Symfony\Component\DependencyInjection\Attribute\AutoconfigureTag;
+use Symfony\Component\DependencyInjection\Attribute\Autowire;
 use Symfony\Component\ErrorHandler\Exception\FlattenException;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
@@ -28,8 +29,10 @@ class ErrorNormalizer implements NormalizerInterface
 
     private readonly HubInterface $sentryHub;
 
-    public function __construct(private readonly RequestStack $requestStack)
-    {
+    public function __construct(
+        #[Autowire('@request_stack')]
+        private readonly RequestStack $requestStack,
+    ) {
         $this->sentryHub = SentrySdk::getCurrentHub();
     }
 

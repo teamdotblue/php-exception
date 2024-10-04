@@ -1,14 +1,4 @@
 services:
-    ADS\Exception\MetadataExtractor\ThrowsExtractor:
-        arguments:
-            - '@ADS\Util\MetadataExtractor\MetadataExtractor'
-
-    ADS\Exception\Normalizer\ErrorNormalizer:
-        arguments:
-            - '@request_stack'
-
-    ADS\Exception\HttpException\ContextExceptionsExtractor:
+    _defaults:
         autowire: true
-
-    ADS\Exception\SchemaFactory\ContextSchemaFactory:
-        autowire: true
+        autoconfigure: true

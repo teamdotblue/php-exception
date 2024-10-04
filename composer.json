@@ -1,8 +1,7 @@
 {
-    "name": "arnedesmedt/php-exception",
+    "name": "team-blue/php-exception",
     "type": "library",
     "description": "PHP Exception library",
-    "homepage": "https://github.com/arnedesmedt/php-exception",
     "license": "MIT",
     "authors": [
         {

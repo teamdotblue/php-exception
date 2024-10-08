@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace ADS\Exception\HttpException\Status;
+namespace TeamBlue\Exception\HttpException\Status;
 
-use ADS\Exception\HttpException\HttpException;
 use Symfony\Component\HttpFoundation\Response;
+use TeamBlue\Exception\HttpException\HttpException;
 
 abstract class UnauthorizedHttpException extends HttpException
 {

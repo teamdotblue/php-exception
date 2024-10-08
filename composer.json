@@ -1,8 +1,7 @@
 {
-    "name": "arnedesmedt/php-exception",
+    "name": "team-blue/php-exception",
     "type": "library",
     "description": "PHP Exception library",
-    "homepage": "https://github.com/arnedesmedt/php-exception",
     "license": "MIT",
     "authors": [
         {
@@ -36,12 +35,12 @@
     },
     "autoload": {
         "psr-4": {
-            "ADS\\Exception\\": "src/"
+            "TeamBlue\\Exception\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "ADS\\Exception\\Tests\\": "tests/"
+            "TeamBlue\\Exception\\Tests\\": "tests/"
         }
     },
     "minimum-stability": "dev",

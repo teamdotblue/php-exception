@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace ADS\Exception\Extractor;
+namespace TeamBlue\Exception\Extractor;
 
 use ADS\Bundle\EventEngineBundle\MetadataExtractor\CommandExtractor;
 use ADS\Bundle\EventEngineBundle\MetadataExtractor\ControllerExtractor;
-use ADS\Exception\HttpException\ContextAwareException;
 use ADS\Specifications\Specification;
 use LogicException;
 use ReflectionClass;
+use TeamBlue\Exception\HttpException\ContextAwareException;
 
 use function array_filter;
 use function array_unique;

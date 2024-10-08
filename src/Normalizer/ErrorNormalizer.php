@@ -2,10 +2,8 @@
 
 declare(strict_types=1);
 
-namespace ADS\Exception\Normalizer;
+namespace TeamBlue\Exception\Normalizer;
 
-use ADS\Exception\HttpException\Metadata\Metadata;
-use ADS\Exception\HttpException\MetadataAwareException;
 use ApiPlatform\Problem\Serializer\ErrorNormalizerTrait;
 use ArrayObject;
 use EventEngine\Data\ImmutableRecord;
@@ -15,6 +13,8 @@ use Symfony\Component\DependencyInjection\Attribute\AutoconfigureTag;
 use Symfony\Component\DependencyInjection\Attribute\Autowire;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+use TeamBlue\Exception\HttpException\Metadata\Metadata;
+use TeamBlue\Exception\HttpException\MetadataAwareException;
 use Throwable;
 
 use function assert;

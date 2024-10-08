@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace ADS\Exception\HttpException;
+namespace TeamBlue\Exception\HttpException;
 
-use ADS\Exception\DefaultJsonSchemaException;
-use ADS\Exception\HttpException\Metadata\Metadata;
+use TeamBlue\Exception\DefaultJsonSchemaException;
+use TeamBlue\Exception\HttpException\Metadata\Metadata;
 
 use function array_merge;
 

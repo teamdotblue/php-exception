@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace ADS\Exception\Tests\Object;
+namespace TeamBlue\Exception\Tests\Object;
 
-use ADS\Exception\DefaultJsonSchemaException;
-use ADS\Exception\HttpException\Status\UnprocessableHttpException;
+use TeamBlue\Exception\DefaultJsonSchemaException;
+use TeamBlue\Exception\HttpException\Status\UnprocessableHttpException;
 
 // phpcs:ignore SlevomatCodingStandard.Classes.SuperfluousExceptionNaming.SuperfluousSuffix
 class CustomUnprocessableHttpException extends UnprocessableHttpException

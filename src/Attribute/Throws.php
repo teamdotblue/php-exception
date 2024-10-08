@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ADS\Exception\Attribute;
+namespace TeamBlue\Exception\Attribute;
 
 use Attribute;
 

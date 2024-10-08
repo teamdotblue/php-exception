@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ADS\Exception\Listener;
+namespace TeamBlue\Exception\Listener;
 
 use EventEngine\Data\ImmutableRecord;
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;

@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace ADS\Exception\Tests\Object;
+namespace TeamBlue\Exception\Tests\Object;
 
-use ADS\Exception\HttpException\ContextAwareException;
-use ADS\Exception\HttpException\ContextAwareExceptionLogic;
-use ADS\Exception\HttpException\Status\BadRequestHttpException;
-use ADS\Exception\Tests\Object\Context\UuidContext;
+use TeamBlue\Exception\HttpException\ContextAwareException;
+use TeamBlue\Exception\HttpException\ContextAwareExceptionLogic;
+use TeamBlue\Exception\HttpException\Status\BadRequestHttpException;
+use TeamBlue\Exception\Tests\Object\Context\UuidContext;
 
 // phpcs:ignore SlevomatCodingStandard.Classes.SuperfluousExceptionNaming.SuperfluousSuffix
 class ContextAwareBadRequestHttpException extends BadRequestHttpException implements ContextAwareException

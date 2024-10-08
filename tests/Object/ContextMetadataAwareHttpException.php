@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace ADS\Exception\Tests\Object;
+namespace TeamBlue\Exception\Tests\Object;
 
-use ADS\Exception\HttpException\ContextAwareException;
-use ADS\Exception\HttpException\ContextMetadataAwareExceptionLogic;
-use ADS\Exception\HttpException\MetadataAwareException;
-use ADS\Exception\HttpException\Status\NotFoundHttpException;
-use ADS\Exception\Tests\Object\Context\UuidContext;
+use TeamBlue\Exception\HttpException\ContextAwareException;
+use TeamBlue\Exception\HttpException\ContextMetadataAwareExceptionLogic;
+use TeamBlue\Exception\HttpException\MetadataAwareException;
+use TeamBlue\Exception\HttpException\Status\NotFoundHttpException;
+use TeamBlue\Exception\Tests\Object\Context\UuidContext;
 
 // phpcs:ignore SlevomatCodingStandard.Classes.SuperfluousExceptionNaming.SuperfluousSuffix
 class ContextMetadataAwareHttpException extends NotFoundHttpException implements

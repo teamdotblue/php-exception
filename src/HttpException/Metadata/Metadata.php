@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ADS\Exception\HttpException\Metadata;
+namespace TeamBlue\Exception\HttpException\Metadata;
 
 use ADS\JsonImmutableObjects\JsonSchemaAwareRecordLogic;
 use EventEngine\JsonSchema\JsonSchemaAwareRecord;

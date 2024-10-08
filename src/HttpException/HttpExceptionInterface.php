@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ADS\Exception\HttpException;
+namespace TeamBlue\Exception\HttpException;
 
 use EventEngine\JsonSchema\JsonSchemaAwareRecord;
 

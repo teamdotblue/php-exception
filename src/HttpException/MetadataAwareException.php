@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace ADS\Exception\HttpException;
+namespace TeamBlue\Exception\HttpException;
 
-use ADS\Exception\HttpException\Metadata\Metadata;
+use TeamBlue\Exception\HttpException\Metadata\Metadata;
 
 interface MetadataAwareException extends HttpExceptionInterface
 {

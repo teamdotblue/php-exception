@@ -2,9 +2,8 @@
 
 declare(strict_types=1);
 
-namespace ADS\Exception\SchemaFactory;
+namespace TeamBlue\Exception\SchemaFactory;
 
-use ADS\Exception\Extractor\ExceptionExtractor;
 use ADS\JsonImmutableObjects\Polymorphism\Discriminator;
 use ApiPlatform\JsonSchema\Schema;
 use ApiPlatform\JsonSchema\SchemaFactoryAwareInterface;
@@ -14,6 +13,7 @@ use ApiPlatform\Metadata\Util\ResourceClassInfoTrait;
 use EventEngine\JsonSchema\JsonSchemaAwareRecord;
 use Symfony\Component\DependencyInjection\Attribute\AsDecorator;
 use Symfony\Component\DependencyInjection\Attribute\AutowireDecorated;
+use TeamBlue\Exception\Extractor\ExceptionExtractor;
 
 #[AsDecorator('api_platform.json_schema.schema_factory')]
 class ContextExceptionsSchemaFactory implements SchemaFactoryInterface, SchemaFactoryAwareInterface

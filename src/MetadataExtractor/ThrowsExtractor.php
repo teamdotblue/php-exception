@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace ADS\Exception\MetadataExtractor;
+namespace TeamBlue\Exception\MetadataExtractor;
 
-use ADS\Exception\Attribute\Throws;
 use ADS\Util\MetadataExtractor\MetadataExtractor;
 use ReflectionClass;
 use ReflectionNamedType;
 use Symfony\Component\DependencyInjection\Attribute\Autowire;
+use TeamBlue\Exception\Attribute\Throws;
 
 use function array_merge;
 

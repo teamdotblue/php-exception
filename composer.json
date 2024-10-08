@@ -35,12 +35,12 @@
     },
     "autoload": {
         "psr-4": {
-            "ADS\\Exception\\": "src/"
+            "TeamBlue\\Exception\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "ADS\\Exception\\Tests\\": "tests/"
+            "TeamBlue\\Exception\\Tests\\": "tests/"
         }
     },
     "minimum-stability": "dev",

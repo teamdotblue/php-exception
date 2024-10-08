@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace ADS\Exception\Tests\Object;
+namespace TeamBlue\Exception\Tests\Object;
 
-use ADS\Exception\HttpException\MetadataAwareException;
-use ADS\Exception\HttpException\MetadataAwareExceptionLogic;
-use ADS\Exception\HttpException\Status\ForbiddenHttpException;
+use TeamBlue\Exception\HttpException\MetadataAwareException;
+use TeamBlue\Exception\HttpException\MetadataAwareExceptionLogic;
+use TeamBlue\Exception\HttpException\Status\ForbiddenHttpException;
 
 // phpcs:ignore SlevomatCodingStandard.Classes.SuperfluousExceptionNaming.SuperfluousSuffix
 class MetadataAwareForbiddenHttpException extends ForbiddenHttpException implements MetadataAwareException

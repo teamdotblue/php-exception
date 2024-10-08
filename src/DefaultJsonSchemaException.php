@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ADS\Exception;
+namespace TeamBlue\Exception;
 
 use ADS\JsonImmutableObjects\JsonSchemaAwareRecordLogic;
 use ADS\Util\StringUtil;

@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace ADS\Exception\Tests\Unit;
+namespace TeamBlue\Exception\Tests\Unit;
 
-use ADS\Exception\HttpException\Metadata\Metadata;
-use ADS\Exception\Tests\Object\ContextAwareBadRequestHttpException;
-use ADS\Exception\Tests\Object\ContextMetadataAwareHttpException;
-use ADS\Exception\Tests\Object\CustomUnprocessableHttpException;
-use ADS\Exception\Tests\Object\MetadataAwareForbiddenHttpException;
 use PHPUnit\Framework\TestCase;
+use TeamBlue\Exception\HttpException\Metadata\Metadata;
+use TeamBlue\Exception\Tests\Object\ContextAwareBadRequestHttpException;
+use TeamBlue\Exception\Tests\Object\ContextMetadataAwareHttpException;
+use TeamBlue\Exception\Tests\Object\CustomUnprocessableHttpException;
+use TeamBlue\Exception\Tests\Object\MetadataAwareForbiddenHttpException;
 
 class HttpExceptionTest extends TestCase
 {

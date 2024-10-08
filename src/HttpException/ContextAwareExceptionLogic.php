@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace ADS\Exception\HttpException;
+namespace TeamBlue\Exception\HttpException;
 
-use ADS\Exception\DefaultJsonSchemaException;
 use EventEngine\JsonSchema\JsonSchemaAwareRecord;
 use LogicException;
+use TeamBlue\Exception\DefaultJsonSchemaException;
 
 use function array_combine;
 use function array_keys;

@@ -8,12 +8,14 @@ use ADS\Exception\Attribute\Throws;
 use ADS\Util\MetadataExtractor\MetadataExtractor;
 use ReflectionClass;
 use ReflectionNamedType;
+use Symfony\Component\DependencyInjection\Attribute\Autowire;
 
 use function array_merge;
 
 class ThrowsExtractor
 {
     public function __construct(
+        #[Autowire('@ADS\Util\MetadataExtractor\MetadataExtractor')]
         private readonly MetadataExtractor $metadataExtractor,
     ) {
     }

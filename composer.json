@@ -13,10 +13,17 @@
     ],
     "require": {
         "php": "^8.2 || ^8.3",
+        "api-platform/core": "^3.0",
+        "arnedesmedt/event-engine-symfony-bundle": "^0.6.41",
         "arnedesmedt/json-immutable-objects": "~0.1",
         "arnedesmedt/php-util": "~0.1",
+        "arnedesmedt/specifications": "^0.2.5",
         "event-engine/php-json-schema": "~3.0",
-        "symfony/http-kernel": "~6.0 || ~7.0"
+        "sentry/sentry": "^4.9",
+        "symfony/error-handler": "^7.1",
+        "symfony/http-kernel": "~6.0 || ~7.0",
+        "symfony/serializer": "^7.1",
+        "team-blue/common": "^0.5.64"
     },
     "require-dev" : {
         "doctrine/coding-standard": "~12.0",
@@ -45,6 +52,12 @@
             "phpro/grumphp": true
         },
         "sort-packages": true
+    },
+    "repositories": {
+        "gitlab.group.team.blue/paas/clients": {
+            "type": "composer",
+            "url": "https://gitlab.group.team.blue/api/v4/group/3988/-/packages/composer/packages.json"
+        }
     },
     "scripts-descriptions": {
         "tests": "Run all tests"

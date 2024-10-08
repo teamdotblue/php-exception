@@ -3,3 +3,10 @@ parameters:
     paths:
         - src
         - tests
+    ignoreErrors:
+        - '#^Method (.*)::init\(\) is unused.$#'
+services:
+    -
+        class: ADS\JsonImmutableObjects\PhpStan\PropertiesExtension
+        tags:
+            - phpstan.properties.readWriteExtension

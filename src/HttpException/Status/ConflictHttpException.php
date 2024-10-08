@@ -2,8 +2,9 @@
 
 declare(strict_types=1);
 
-namespace ADS\Exception\HttpException;
+namespace ADS\Exception\HttpException\Status;
 
+use ADS\Exception\HttpException\HttpException;
 use Symfony\Component\HttpFoundation\Response;
 
 abstract class ConflictHttpException extends HttpException

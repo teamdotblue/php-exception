@@ -11,6 +11,7 @@ use Throwable;
 use function is_array;
 use function json_decode;
 
+/** @deprecated  */
 // phpcs:disable SlevomatCodingStandard.Classes.SuperfluousExceptionNaming.SuperfluousSuffix
 class PassThroughContextException extends HttpException
 {

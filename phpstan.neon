@@ -4,7 +4,9 @@ parameters:
         - src
         - tests
     ignoreErrors:
-        -
-            message: '#Property ADS\\Exception\\Context\\.*::\$.* is never written, only read\.#'
-            paths:
-                - */Context/*
+        - '#^Method (.*)::init\(\) is unused.$#'
+services:
+    -
+        class: ADS\JsonImmutableObjects\PhpStan\PropertiesExtension
+        tags:
+            - phpstan.properties.readWriteExtension

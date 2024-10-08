@@ -19,10 +19,6 @@ use function sprintf;
 use function strrchr;
 use function substr;
 
-/**
- * @property string $message
- * @method int getStatusCode()
- */
 trait DefaultJsonSchemaException
 {
     use JsonSchemaAwareRecordLogic;
@@ -41,32 +37,10 @@ trait DefaultJsonSchemaException
         '__arrayPropItemTypeMap',
     ];
 
-    protected string $type;
-
-    protected string $title = 'Exception';
-    protected string $detail;
-
-    protected int $status;
-
     private function init(): void
     {
         $this->status = $this->getStatusCode();
         $this->message = $this->detail;
-    }
-
-    public static function fromTitleAndDetail(string $title, string $detail): self
-    {
-        return self::fromArray(
-            [
-                'title' => $title,
-                'detail' => $detail,
-            ],
-        );
-    }
-
-    public static function fromDetail(string $detail): self
-    {
-        return self::fromArray(['detail' => $detail]);
     }
 
     /**
@@ -74,7 +48,7 @@ trait DefaultJsonSchemaException
      *
      * @phpcsSuppress SlevomatCodingStandard.Classes.UnusedPrivateElements.UnusedMethod
      */
-    private static function __defaultProperties(): array
+    public static function __defaultProperties(): array
     {
         $strrchr = strrchr(self::class, '\\');
 
@@ -117,20 +91,5 @@ trait DefaultJsonSchemaException
         }
 
         return $propertyTypeMap;
-    }
-
-    public function type(): string
-    {
-        return $this->type;
-    }
-
-    public function title(): string
-    {
-        return $this->title;
-    }
-
-    public function detail(): string
-    {
-        return $this->detail;
     }
 }

@@ -19,10 +19,10 @@
         "arnedesmedt/specifications": "^0.2.5",
         "event-engine/php-json-schema": "~3.0",
         "sentry/sentry": "^4.9",
-        "symfony/error-handler": "^7.1",
+        "symfony/error-handler": "^7.0",
         "symfony/http-kernel": "~6.0 || ~7.0",
-        "symfony/serializer": "^7.1",
-        "team-blue/common": "^0.5.64"
+        "symfony/serializer": "^7.0",
+        "team-blue/common": "^0.6.19"
     },
     "require-dev" : {
         "doctrine/coding-standard": "~12.0",

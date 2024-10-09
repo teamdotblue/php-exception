@@ -13,7 +13,7 @@
     "require": {
         "php": "^8.2 || ^8.3",
         "api-platform/core": "^3.0",
-        "arnedesmedt/event-engine-symfony-bundle": "^0.6.41",
+        "arnedesmedt/event-engine-symfony-bundle": "^0.7.14",
         "arnedesmedt/json-immutable-objects": "~0.1",
         "arnedesmedt/php-util": "~0.1",
         "arnedesmedt/specifications": "^0.2.5",
@@ -53,6 +53,10 @@
         "sort-packages": true
     },
     "repositories": {
+        "packeton.teamblue-ops.net": {
+            "type": "composer",
+            "url": "https://packeton.teamblue-ops.net"
+        },
         "gitlab.group.team.blue/paas/clients": {
             "type": "composer",
             "url": "https://gitlab.group.team.blue/api/v4/group/3988/-/packages/composer/packages.json"

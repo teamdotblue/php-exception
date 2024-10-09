@@ -37,6 +37,9 @@ trait MetadataAwareExceptionLogic
 
     public function withMetadata(Metadata $metadata): self
     {
-        return $this->with(['metadata' => $metadata]);
+        // Don't use with, we can't clone exceptions.
+        $this->setRecordData(['metadata' => $metadata]);
+
+        return $this;
     }
 }

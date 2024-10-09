@@ -33,6 +33,11 @@ trait ContextAwareExceptionLogic
         return self::fromArray(['context' => $context]);
     }
 
+    public static function fromContext(JsonSchemaAwareRecord $context): self
+    {
+        return self::fromRecordData(['context' => $context]);
+    }
+
     /** @return array<string, array{0: string, 1: bool, 2: bool}> */
     private static function buildPropTypeMap(): array
     {

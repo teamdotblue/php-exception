@@ -14,7 +14,9 @@ use TeamBlue\JsonImmutableObjects\JsonSchemaAwareRecordLogic;
 use function array_combine;
 use function array_diff_key;
 use function array_flip;
+use function array_intersect_key;
 use function array_map;
+use function array_merge;
 use function sprintf;
 use function strrchr;
 use function substr;
@@ -22,6 +24,15 @@ use function substr;
 trait DefaultJsonSchemaException
 {
     use JsonSchemaAwareRecordLogic;
+
+    private const PROPERTY_ORDER = [
+        'type',
+        'title',
+        'detail',
+        'context',
+        'status',
+        'metadata',
+    ];
 
     private const PROPERTIES_TO_IGNORE = [
         'statusCode',
@@ -61,6 +72,7 @@ trait DefaultJsonSchemaException
                 '/problem/%s',
                 StringUtil::decamelize(substr($strrchr, 1), '-', ' '),
             ),
+            'status' => (new ReflectionClass(self::class))->newInstanceWithoutConstructor()->getStatusCode(),
         ];
     }
 
@@ -91,6 +103,21 @@ trait DefaultJsonSchemaException
             ];
         }
 
-        return $propertyTypeMap;
+        $sortedPropertyTypeMap = array_merge(
+            array_flip(self::PROPERTY_ORDER),
+            $propertyTypeMap,
+        );
+
+        return array_intersect_key($sortedPropertyTypeMap, $propertyTypeMap);
+    }
+
+    /**
+     * @return array<string>
+     *
+     * @inheritDoc
+     */
+    private static function __optionalProperties(): array
+    {
+        return [];
     }
 }

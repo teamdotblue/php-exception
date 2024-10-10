@@ -25,6 +25,7 @@ trait ContextAwareExceptionLogic
     use DefaultJsonSchemaException {
         buildPropTypeMap as defaultJsonSchemaExceptionBuildPropTypeMap;
         init as parentInit;
+        __defaultProperties as parentDefaultProperties;
     }
 
     /** @param array<string, mixed> $context */
@@ -36,6 +37,19 @@ trait ContextAwareExceptionLogic
     public static function fromContext(JsonSchemaAwareRecord $context): self
     {
         return self::fromRecordData(['context' => $context]);
+    }
+
+    /**
+     * @return array<string, string>
+     *
+     * @phpcsSuppress SlevomatCodingStandard.Classes.UnusedPrivateElements.UnusedMethod
+     */
+    public static function __defaultProperties(): array
+    {
+        $defaultProperties = self::parentDefaultProperties();
+        $defaultProperties['detail'] = static::template();
+
+        return $defaultProperties;
     }
 
     /** @return array<string, array{0: string, 1: bool, 2: bool}> */

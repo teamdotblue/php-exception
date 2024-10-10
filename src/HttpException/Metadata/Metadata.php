@@ -7,8 +7,9 @@ namespace TeamBlue\Exception\HttpException\Metadata;
 use ADS\JsonImmutableObjects\JsonSchemaAwareRecordLogic;
 use EventEngine\JsonSchema\JsonSchemaAwareRecord;
 use RuntimeException;
+use TeamBlue\JsonImmutableObjects\HasPropertyExamples;
 
-class Metadata implements JsonSchemaAwareRecord
+class Metadata implements JsonSchemaAwareRecord, HasPropertyExamples
 {
     use JsonSchemaAwareRecordLogic;
 
@@ -41,5 +42,14 @@ class Metadata implements JsonSchemaAwareRecord
         }
 
         return $this->sentryTraceId;
+    }
+
+    /** @inheritdoc  */
+    public static function examples(): array
+    {
+        return [
+            'requestId' => '50d02fc7-0420-485d-8904-af2fd8c61cf9',
+            'sentryTraceId' => 'fef576',
+        ];
     }
 }

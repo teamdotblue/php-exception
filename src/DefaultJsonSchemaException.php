@@ -87,6 +87,7 @@ trait DefaultJsonSchemaException
                 $type->getName(),
                 self::isScalarType($type->getName()),
                 $type->allowsNull(),
+                self::isPropertySensitive($property),
             ];
         }
 

@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace TeamBlue\Exception\HttpException\Metadata;
 
-use ADS\JsonImmutableObjects\JsonSchemaAwareRecordLogic;
 use EventEngine\JsonSchema\JsonSchemaAwareRecord;
 use RuntimeException;
 use TeamBlue\JsonImmutableObjects\HasPropertyExamples;
+use TeamBlue\JsonImmutableObjects\JsonSchemaAwareRecordLogic;
 
 class Metadata implements JsonSchemaAwareRecord, HasPropertyExamples
 {

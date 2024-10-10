@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace TeamBlue\Exception\HttpException;
 
-use ADS\JsonImmutableObjects\JsonSchemaAwareRecordLogic;
 use Exception;
+use TeamBlue\JsonImmutableObjects\JsonSchemaAwareRecordLogic;
 
 abstract class HttpException extends Exception implements HttpExceptionInterface
 {

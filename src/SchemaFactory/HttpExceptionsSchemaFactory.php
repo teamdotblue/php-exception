@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace TeamBlue\Exception\SchemaFactory;
 
-use ADS\JsonImmutableObjects\Polymorphism\Discriminator;
 use ApiPlatform\JsonSchema\Schema;
 use ApiPlatform\JsonSchema\SchemaFactoryAwareInterface;
 use ApiPlatform\JsonSchema\SchemaFactoryInterface;
@@ -15,6 +14,7 @@ use EventEngine\JsonSchema\JsonSchemaAwareRecord;
 use Symfony\Component\DependencyInjection\Attribute\AsDecorator;
 use Symfony\Component\DependencyInjection\Attribute\AutowireDecorated;
 use TeamBlue\Exception\Extractor\ExceptionExtractor;
+use TeamBlue\JsonImmutableObjects\Polymorphism\Discriminator;
 
 #[AsDecorator('api_platform.json_schema.schema_factory')]
 class HttpExceptionsSchemaFactory implements SchemaFactoryInterface, SchemaFactoryAwareInterface

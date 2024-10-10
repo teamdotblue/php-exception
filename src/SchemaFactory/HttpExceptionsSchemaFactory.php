@@ -10,20 +10,21 @@ use ApiPlatform\JsonSchema\SchemaFactoryAwareInterface;
 use ApiPlatform\JsonSchema\SchemaFactoryInterface;
 use ApiPlatform\Metadata\Operation;
 use ApiPlatform\Metadata\Util\ResourceClassInfoTrait;
+use ArrayObject;
 use EventEngine\JsonSchema\JsonSchemaAwareRecord;
 use Symfony\Component\DependencyInjection\Attribute\AsDecorator;
 use Symfony\Component\DependencyInjection\Attribute\AutowireDecorated;
 use TeamBlue\Exception\Extractor\ExceptionExtractor;
 
 #[AsDecorator('api_platform.json_schema.schema_factory')]
-class ContextExceptionsSchemaFactory implements SchemaFactoryInterface, SchemaFactoryAwareInterface
+class HttpExceptionsSchemaFactory implements SchemaFactoryInterface, SchemaFactoryAwareInterface
 {
     use ResourceClassInfoTrait;
 
     public function __construct(
         #[AutowireDecorated]
         private SchemaFactoryInterface $schemaFactory,
-        private readonly ExceptionExtractor $contextExceptionsExtractor,
+        private readonly ExceptionExtractor $exceptionExtractor,
     ) {
         if (! ($this->schemaFactory instanceof SchemaFactoryAwareInterface)) {
             return;
@@ -68,14 +69,14 @@ class ContextExceptionsSchemaFactory implements SchemaFactoryInterface, SchemaFa
 
         $definitions = $schema->getDefinitions();
 
-        foreach ($this->contextExceptionsExtractor->extract($messageClass) as $exceptionClass) {
+        foreach ($this->exceptionExtractor->extract($messageClass) as $exceptionClass) {
             $schemaName = $exceptionClass::__type();
 
             if (isset($definitions[$schemaName])) {
                 continue;
             }
 
-            $definitions[$schemaName] = $exceptionClass::__schema()->toArray();
+            $definitions[$schemaName] = new ArrayObject($exceptionClass::__schema()->toArray());
         }
 
         return $schema;

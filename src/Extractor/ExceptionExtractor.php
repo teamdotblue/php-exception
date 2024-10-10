@@ -9,7 +9,7 @@ use ADS\Bundle\EventEngineBundle\MetadataExtractor\ControllerExtractor;
 use ADS\Specifications\Specification;
 use LogicException;
 use ReflectionClass;
-use TeamBlue\Exception\HttpException\ContextAwareException;
+use TeamBlue\Exception\HttpException\HttpException;
 
 use function array_filter;
 use function array_unique;
@@ -28,7 +28,7 @@ class ExceptionExtractor
     /**
      * @param class-string $className
      *
-     * @return array<class-string<ContextAwareException>>
+     * @return array<class-string<HttpException>>
      *
      * @SuppressWarnings(PHPMD.EmptyCatchBlock)
      */
@@ -45,15 +45,15 @@ class ExceptionExtractor
             }
         }
 
-        return $this->extractContextExceptionsFromClasses($classesToExtractExceptionsFor);
+        return $this->extractHttpExceptionsFromClasses($classesToExtractExceptionsFor);
     }
 
     /**
      * @param array<class-string> $classesToExtractExceptionsFor
      *
-     * @return array<class-string<ContextAwareException>>
+     * @return array<class-string<HttpException>>
      */
-    private function extractContextExceptionsFromClasses(array $classesToExtractExceptionsFor): array
+    private function extractHttpExceptionsFromClasses(array $classesToExtractExceptionsFor): array
     {
         $exceptionClasses = [];
         $specificationClasses = [];
@@ -65,18 +65,18 @@ class ExceptionExtractor
             ];
             $exceptionClasses = [
                 ...$exceptionClasses,
-                ...$this->importsFromClassByType($class, ContextAwareException::class),
+                ...$this->importsFromClassByType($class, HttpException::class),
             ];
         }
 
         foreach ($specificationClasses as $specificationClass) {
             $exceptionClasses = [
                 ...$exceptionClasses,
-                ...$this->importsFromClassByType($specificationClass, ContextAwareException::class),
+                ...$this->importsFromClassByType($specificationClass, HttpException::class),
             ];
         }
 
-        /** @var array<class-string<ContextAwareException>> $uniqueExceptions */
+        /** @var array<class-string<HttpException>> $uniqueExceptions */
         $uniqueExceptions = array_unique($exceptionClasses);
 
         return $uniqueExceptions;

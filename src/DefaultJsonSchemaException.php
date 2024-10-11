@@ -69,11 +69,17 @@ trait DefaultJsonSchemaException
 
         return [
             'type' => sprintf(
-                '/problem/%s',
+                '/problem/%s%s',
+                self::typePrefix(),
                 StringUtil::decamelize(substr($strrchr, 1), '-', ' '),
             ),
             'status' => (new ReflectionClass(self::class))->newInstanceWithoutConstructor()->getStatusCode(),
         ];
+    }
+
+    private static function typePrefix(): string
+    {
+        return '';
     }
 
     /** @return array<string, array{0: string, 1: bool, 2: bool}> */

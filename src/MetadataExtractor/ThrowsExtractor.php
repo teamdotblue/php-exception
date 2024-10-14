@@ -4,18 +4,18 @@ declare(strict_types=1);
 
 namespace TeamBlue\Exception\MetadataExtractor;
 
-use ADS\Util\MetadataExtractor\MetadataExtractor;
 use ReflectionClass;
 use ReflectionNamedType;
 use Symfony\Component\DependencyInjection\Attribute\Autowire;
 use TeamBlue\Exception\Attribute\Throws;
+use TeamBlue\Util\MetadataExtractor\MetadataExtractor;
 
 use function array_merge;
 
 class ThrowsExtractor
 {
     public function __construct(
-        #[Autowire('@ADS\Util\MetadataExtractor\MetadataExtractor')]
+        #[Autowire('@TeamBlue\Util\MetadataExtractor\MetadataExtractor')]
         private readonly MetadataExtractor $metadataExtractor,
     ) {
     }

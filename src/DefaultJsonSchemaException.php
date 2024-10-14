@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace TeamBlue\Exception;
 
-use ADS\Util\StringUtil;
 use LogicException;
 use ReflectionClass;
 use ReflectionNamedType;
 use ReflectionProperty;
 use TeamBlue\JsonImmutableObjects\JsonSchemaAwareRecordLogic;
+use TeamBlue\Util\StringUtil;
 
 use function array_combine;
 use function array_diff_key;

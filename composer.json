@@ -13,13 +13,8 @@
     "require": {
         "php": "^8.2 || ^8.3",
         "arnedesmedt/php-util": "~0.1",
-        "arnedesmedt/specifications": "^0.2.5",
         "event-engine/php-json-schema": "~3.0",
-        "sentry/sentry": "^4.9",
-        "symfony/error-handler": "^7.0",
         "symfony/http-kernel": "~6.0 || ~7.0",
-        "symfony/serializer": "^7.0",
-        "team-blue/common": "^0.6.19",
         "team-blue/php-json-immutable-objects": "^0.5.5"
     },
     "require-dev" : {

@@ -22,7 +22,7 @@
         "symfony/http-kernel": "~6.0 || ~7.0",
         "symfony/serializer": "^7.0",
         "team-blue/common": "^0.6.19",
-        "team-blue/php-json-immutable-objects": "~0.1"
+        "team-blue/php-json-immutable-objects": "^0.5.5"
     },
     "require-dev" : {
         "doctrine/coding-standard": "~12.0",

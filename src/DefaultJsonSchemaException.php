@@ -23,7 +23,9 @@ use function substr;
 
 trait DefaultJsonSchemaException
 {
-    use JsonSchemaAwareRecordLogic;
+    use JsonSchemaAwareRecordLogic {
+        init as parentInit;
+    }
 
     private const PROPERTY_ORDER = [
         'type',
@@ -50,7 +52,9 @@ trait DefaultJsonSchemaException
 
     private function init(): void
     {
-        $this->status = $this->getStatusCode();
+        // add the default properties. @see __defaultProperties
+        $this->parentInit();
+
         $this->message = $this->detail;
     }
 

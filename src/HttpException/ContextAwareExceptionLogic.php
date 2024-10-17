@@ -24,7 +24,7 @@ trait ContextAwareExceptionLogic
 {
     use DefaultJsonSchemaException {
         buildPropTypeMap as defaultJsonSchemaExceptionBuildPropTypeMap;
-        init as parentInit;
+        init as defaultInit;
         __defaultProperties as parentDefaultProperties;
     }
 
@@ -83,7 +83,7 @@ trait ContextAwareExceptionLogic
     private function init(): void
     {
         $this->renderTemplate();
-        $this->parentInit();
+        $this->defaultInit();
     }
 
     private function renderTemplate(): void

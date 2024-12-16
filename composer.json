@@ -49,10 +49,6 @@
         "packeton.teamblue-ops.net": {
             "type": "composer",
             "url": "https://packeton.teamblue-ops.net"
-        },
-        "gitlab.group.team.blue/paas/clients": {
-            "type": "composer",
-            "url": "https://gitlab.group.team.blue/api/v4/group/3988/-/packages/composer/packages.json"
         }
     },
     "scripts-descriptions": {

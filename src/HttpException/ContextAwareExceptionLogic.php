@@ -96,10 +96,10 @@ trait ContextAwareExceptionLogic
             array_values($this->context->toArray()),
         );
 
-        $this->detail = strtr(static::template(), $contextWithCurlyBraces);
+        $this->detail = strtr(static::template($this->context), $contextWithCurlyBraces);
     }
 
-    abstract protected static function template(): string;
+    abstract protected static function template(JsonSchemaAwareRecord|null $context = null): string;
 
     public function context(): JsonSchemaAwareRecord
     {

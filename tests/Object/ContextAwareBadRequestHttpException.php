@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace TeamBlue\Exception\Tests\Object;
 
-use EventEngine\JsonSchema\JsonSchemaAwareRecord;
 use TeamBlue\Exception\HttpException\ContextAwareException;
 use TeamBlue\Exception\HttpException\ContextAwareExceptionLogic;
 use TeamBlue\Exception\HttpException\Status\BadRequestHttpException;
@@ -18,7 +17,7 @@ class ContextAwareBadRequestHttpException extends BadRequestHttpException implem
     protected string $title = 'Custom context title';
     private UuidContext $context;
 
-    protected static function template(JsonSchemaAwareRecord|null $context = null): string
+    protected static function template(): string
     {
         return 'This is a test template with {uuid}.';
     }

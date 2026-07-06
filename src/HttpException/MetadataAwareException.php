@@ -6,7 +6,7 @@ namespace TeamBlue\Exception\HttpException;
 
 use TeamBlue\Exception\HttpException\Metadata\Metadata;
 
-interface MetadataAwareException extends HttpExceptionInterface
+interface MetadataAwareException
 {
     public function metadata(): Metadata;
 

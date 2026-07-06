@@ -6,7 +6,7 @@ namespace TeamBlue\Exception\HttpException;
 
 use EventEngine\JsonSchema\JsonSchemaAwareRecord;
 
-interface ContextAwareException extends HttpExceptionInterface
+interface ContextAwareException
 {
     public function context(): JsonSchemaAwareRecord;
 }

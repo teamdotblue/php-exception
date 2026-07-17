@@ -11,7 +11,6 @@ trait HttpExceptionLogic
     use JsonSchemaAwareRecordLogic;
 
     protected string $type;
-    protected string $title = 'Exception';
     protected string $detail;
     protected int $status;
 

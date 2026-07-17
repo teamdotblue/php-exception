@@ -9,4 +9,6 @@ use Exception;
 abstract class HttpException extends Exception implements HttpExceptionInterface
 {
     use HttpExceptionLogic;
+
+    protected string $title = 'Exception';
 }

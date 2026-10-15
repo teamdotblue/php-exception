@@ -5,11 +5,16 @@ declare(strict_types=1);
 namespace TeamBlue\Exception\Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
+use ReflectionClass;
 use TeamBlue\Exception\HttpException\Metadata\Metadata;
 use TeamBlue\Exception\Tests\Object\ContextAwareBadRequestHttpException;
+use TeamBlue\Exception\Tests\Object\ContextAwareExceptionWithoutHttpLogic;
 use TeamBlue\Exception\Tests\Object\ContextMetadataAwareHttpException;
 use TeamBlue\Exception\Tests\Object\CustomUnprocessableHttpException;
 use TeamBlue\Exception\Tests\Object\MetadataAwareForbiddenHttpException;
+
+use function array_column;
+use function sprintf;
 
 class HttpExceptionTest extends TestCase
 {
@@ -96,5 +101,32 @@ class HttpExceptionTest extends TestCase
 
         $this->assertInstanceOf(Metadata::class, $exception->metadata());
         $this->assertEquals(['uuid' => '3d2378ed-3684-46d9-a818-34dbe403b577'], $exception->context()->toArray());
+    }
+
+    public function testContextAwareExceptionWithoutHttpLogicDoesNotCreateDynamicProperties(): void
+    {
+        $exception = ContextAwareExceptionWithoutHttpLogic::createFromUuid(
+            '3d2378ed-3684-46d9-a818-34dbe403b578',
+        );
+
+        $this->assertInstanceOf(ContextAwareExceptionWithoutHttpLogic::class, $exception);
+        $this->assertEquals(
+            'Context aware exception template with 3d2378ed-3684-46d9-a818-34dbe403b578.',
+            $exception->getMessage(),
+        );
+        $this->assertEquals(['uuid' => '3d2378ed-3684-46d9-a818-34dbe403b578'], $exception->context()->toArray());
+
+        $properties = array_column((new ReflectionClass($exception))->getProperties(), 'name');
+        foreach (['type', 'detail', 'status'] as $property) {
+            $this->assertContains(
+                $property,
+                $properties,
+                sprintf(
+                    'ContextAwareExceptionLogic must declare $%s, so no dynamic property is created when the trait ' .
+                    'is used without HttpExceptionLogic.',
+                    $property,
+                ),
+            );
+        }
     }
 }

@@ -28,6 +28,18 @@ trait ContextAwareExceptionLogic
         __defaultProperties as parentDefaultProperties;
     }
 
+    /**
+     * Declared to prevent dynamic property creation when this trait is used on
+     * exceptions that do not combine it with HttpExceptionLogic. The
+     * declarations are identical to HttpExceptionLogic's, so using both
+     * traits together (see ContextHttpAwareExceptionLogic) stays compatible.
+     */
+    protected string $type;
+
+    protected string $detail;
+
+    protected int $status;
+
     /** @param array<string, mixed> $context */
     public static function fromContextArray(array $context): self
     {
